@@ -1,0 +1,21 @@
+package com.ying.weixin_order.utils.serializer;
+
+import com.fasterxml.jackson.core.JsonGenerator;
+import com.fasterxml.jackson.databind.JsonSerializer;
+import com.fasterxml.jackson.databind.SerializerProvider;
+import com.ying.weixin_order.entity.OrderMaster;
+
+import java.io.IOException;
+import java.util.Date;
+
+/**
+ * @Author sunmengying
+ * @Date 2019/1/9 16:12
+ */
+public class Date2LongSerializer extends JsonSerializer<Date> {
+
+    @Override
+    public void serialize(Date value, JsonGenerator gen, SerializerProvider serializers) throws IOException {
+        gen.writeNumber(value.getTime() / 1000);
+    }
+}
